@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, onSnapshot } from "firebase/firestore";
+import { useState, useEffect } from "react";
 
+// Replace the placeholder strings with your actual Firebase configuration values
 const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_AUTH_DOMAIN",
@@ -11,10 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-import { useState, useEffect } from "react";
-import { db } from "./firebase";
-import { doc, setDoc, onSnapshot } from "firebase/firestore";
+const db = getFirestore(app);
 
 function Editor() {
     const [text, setText] = useState("");
